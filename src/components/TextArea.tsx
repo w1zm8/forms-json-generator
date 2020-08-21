@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import Label from "./Label";
+import LabelWrapper from "./LabelWrapper";
 
 const TextAreaBlock = styled.div`
   label {
@@ -12,13 +12,12 @@ type Props = React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
   label?: string;
 };
 
-const TextArea: FC<Props> = ({ label, id, ...props }) => {
-  return (
-    <TextAreaBlock>
-      {label && <Label htmlFor={id}>{label}</Label>}
+const TextArea: FC<Props> = ({ label, id, ...props }) => (
+  <TextAreaBlock>
+    <LabelWrapper label={label} id={id}>
       <textarea id={id} {...props} />
-    </TextAreaBlock>
-  );
-};
+    </LabelWrapper>
+  </TextAreaBlock>
+);
 
 export default TextArea;

@@ -1,10 +1,10 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import TextField from "../TextField";
+import Field from "../Field";
 
 describe("TextField", () => {
   it("renders correctly", () => {
-    const { container } = render(<TextField />);
+    const { container } = render(<Field />);
 
     // test that needed layout: input inside div
     expect(container.querySelector("div > input")).toBeInTheDocument();
@@ -13,7 +13,7 @@ describe("TextField", () => {
     const labelText = "some text field";
     const id = "test";
     const { getByText, getByLabelText } = render(
-      <TextField label={labelText} id={id} />
+      <Field label={labelText} id={id} />
     );
 
     const input = getByLabelText(labelText);

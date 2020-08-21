@@ -1,19 +1,19 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Checkbox from "../Checkbox";
+import Field from "../Field";
 
-describe("Checkbox", () => {
-  test("renders correctly", () => {
-    const { container } = render(<Checkbox />);
+describe("Field", () => {
+  it("renders correctly", () => {
+    const { container } = render(<Field />);
 
     // test that needed layout: input inside div
     expect(container.querySelector("div > input")).toBeInTheDocument();
   });
-  test("renders with label", () => {
-    const labelText = "some checkbox";
+  it("renders with label", () => {
+    const labelText = "some text field";
     const id = "test";
     const { getByText, getByLabelText } = render(
-      <Checkbox label={labelText} id={id} />
+      <Field label={labelText} id={id} />
     );
 
     const input = getByLabelText(labelText);

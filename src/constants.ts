@@ -5,11 +5,12 @@ export const FIELD_TYPE_BOOLEAN = "boolean";
 export const FIELD_TYPE_RADIO = "radio";
 export const FIELD_TYPE_DATE = "date";
 
-export const FIELD_TYPES = [
-  FIELD_TYPE_TEXT,
+export const FIELD_INPUT_TYPES = [
   FIELD_TYPE_NUMBER,
   FIELD_TYPE_BOOLEAN,
   FIELD_TYPE_STRING,
   FIELD_TYPE_RADIO,
   FIELD_TYPE_DATE,
-] as const;
+];
+
+export const FIELD_TYPES = [...FIELD_INPUT_TYPES, FIELD_TYPE_TEXT] as const;
