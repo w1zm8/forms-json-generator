@@ -1,7 +1,7 @@
 import React, { FC, ComponentType } from "react";
 import { render } from "@testing-library/react";
 import ResultForm from "../ResultForm";
-import { title, items, controls } from "../__mocks__/formResultData";
+import { title, items, controls } from "../../__mocks__/formResultData";
 import { FormConfigProvider } from "../../contexts/FormConfigContext";
 import formConfigReducer from "../../reducers/formConfigReducer";
 

@@ -29,3 +29,8 @@ export interface FormsConfigData {
   items: FormsConfigItem[];
   controls: FormsConfigControl[];
 }
+
+export interface Action {
+  type: string;
+  payload?: any;
+}

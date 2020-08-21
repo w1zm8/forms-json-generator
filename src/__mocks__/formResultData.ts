@@ -1,4 +1,4 @@
-import { FormsConfigControl, FormsConfigItem } from "../../types";
+import { FormsConfigControl, FormsConfigItem } from "../types";
 
 export const title = "Some Form";
 export const items: FormsConfigItem[] = [

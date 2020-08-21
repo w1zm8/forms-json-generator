@@ -1,6 +1,5 @@
 import React, {
   createContext,
-  useContext,
   useReducer,
   Dispatch,
   ReducerState,
@@ -11,12 +10,14 @@ import {
   FormConfigState,
 } from "../reducers/formConfigReducer";
 
-interface ContextValue {
+export interface ContextValue {
   state: ReducerState<FormConfigReducer>;
   dispatch: Dispatch<Action>;
 }
 
-const FormConfigContext = createContext<ContextValue | undefined>(undefined);
+export const FormConfigContext = createContext<ContextValue | undefined>(
+  undefined
+);
 
 interface Props {
   reducer: FormConfigReducer;
@@ -37,13 +38,4 @@ export const FormConfigProvider = ({
       children={children}
     />
   );
-};
-
-export const useFormConfig = () =>
-  useContext(FormConfigContext) as ContextValue;
-
-export const useFormConfigData = () => {
-  const { state } = useFormConfig();
-
-  return state.data;
 };

@@ -1,13 +1,13 @@
 import { Reducer } from "react";
-import { FormsConfigData } from "../types";
+import { FormsConfigData, Action } from "../types";
+import {
+  UPDATE_FORM_CONFIG,
+  VALIDATE_FORM_CONFIG,
+} from "../actions/formConfigActions";
 
 export interface FormConfigState {
   data: FormsConfigData;
-}
-
-export interface Action {
-  type: string;
-  payload?: unknown;
+  error: string | null;
 }
 
 export type FormConfigReducer = Reducer<FormConfigState, Action>;
@@ -18,9 +18,16 @@ export const initialState: FormConfigState = {
     items: [],
     controls: [],
   },
+  error: null,
 };
 
-const formConfigReducer: FormConfigReducer = (state, action) => {
+const formConfigReducer: FormConfigReducer = (state, { type, payload }) => {
+  switch (type) {
+    case UPDATE_FORM_CONFIG:
+      return { ...state, data: payload };
+    case VALIDATE_FORM_CONFIG:
+      return { ...state, error: payload };
+  }
   return state;
 };
 

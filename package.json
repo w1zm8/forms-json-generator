@@ -39,7 +39,9 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^3.4.1",
     "@types/faker": "^4.1.12",
-    "faker": "^4.1.0"
+    "faker": "^4.1.0",
+    "react-test-renderer": "^16.13.1"
   }
 }

@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { useFormConfigData } from "../contexts/FormConfigContext";
 import FormItemsViewer from "./FormItemsViewer";
 import FormControlsViewer from "./FormControlsViewer";
+import { useFormConfigData } from "../hooks/useFormConfig";
 
 const ResultForm: FC<{}> = () => {
   const { title, items, controls } = useFormConfigData();
