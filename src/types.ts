@@ -13,20 +13,19 @@ export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export type FieldTextAreaProps = InputProps | TextareaProps;
 
-export interface FormsConfigurationItem {
+export interface FormsConfigItem {
   label?: string;
   type: FieldType;
   props?: FieldTextAreaProps;
 }
 
-export interface FormsConfigurationControl {
+export interface FormsConfigControl {
   label: string;
-  count: number;
   props: ButtonHTMLAttributes<HTMLButtonElement>;
 }
 
-export interface FormsConfigurationData {
+export interface FormsConfigData {
   title?: string;
-  items: FormsConfigurationItem[];
-  controls: FormsConfigurationControl[];
+  items: FormsConfigItem[];
+  controls: FormsConfigControl[];
 }

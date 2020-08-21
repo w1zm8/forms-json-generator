@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import Label from "./Label";
 
-type Props = {
+interface Props {
   label?: string;
   id?: string;
   children: React.ReactElement;
-};
+}
 
 const LabelWrapper: FC<Props> = ({ label, id, children }) => (
   <>

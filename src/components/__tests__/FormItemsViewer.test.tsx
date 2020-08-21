@@ -3,7 +3,7 @@ import { render, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import faker from "faker";
 import FormItemsViewer from "../FormItemsViewer";
-import { FormsConfigurationItem, InputProps, TextareaProps } from "../../types";
+import { FormsConfigItem, InputProps, TextareaProps } from "../../types";
 
 const EMAIL_INDEX = 0;
 const USERNAME_INDEX = 1;
@@ -23,7 +23,7 @@ const formValues = {
   about: faker.lorem.text(),
 };
 
-const mockItems: FormsConfigurationItem[] = [
+const mockItems: FormsConfigItem[] = [
   {
     label: "Email",
     type: "string",

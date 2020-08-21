@@ -10,7 +10,7 @@ const FieldBlock = styled.div`
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
-  onChange(e: FormEvent<HTMLInputElement>): void;
+  onChange?(e: FormEvent<HTMLInputElement>): void;
 };
 
 /*

@@ -10,14 +10,16 @@ import TextArea from "./TextArea";
 import { FIELD_TYPE_TEXT, FIELD_INPUT_TYPES } from "../constants";
 import { getInputType } from "../helpers";
 
-type Props = {
+type FieldInputType = typeof FIELD_INPUT_TYPES[number];
+
+interface Props {
   type: FieldType;
   label?: string;
   tagProps?: FieldTextAreaProps;
-};
+}
 
 const CommonField: FC<Props> = ({ type, label, tagProps = {} }) => {
-  if (FIELD_INPUT_TYPES.includes(type)) {
+  if (FIELD_INPUT_TYPES.includes(type as FieldInputType)) {
     const inputType = getInputType(type);
     return (
       <Field type={inputType} label={label} {...(tagProps as InputProps)} />
