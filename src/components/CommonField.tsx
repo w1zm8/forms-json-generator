@@ -1,17 +1,19 @@
-import React, { FC, InputHTMLAttributes, TextareaHTMLAttributes } from "react";
-import { FieldType } from "../types";
+import React, { FC } from "react";
+import {
+  FieldType,
+  FieldTextAreaProps,
+  InputProps,
+  TextareaProps,
+} from "../types";
 import Field from "./Field";
 import TextArea from "./TextArea";
 import { FIELD_TYPE_TEXT, FIELD_INPUT_TYPES } from "../constants";
 import { getInputType } from "../helpers";
 
-type InputProps = InputHTMLAttributes<HTMLInputElement>;
-type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
-
 type Props = {
   type: FieldType;
   label?: string;
-  tagProps?: InputProps | TextareaProps;
+  tagProps?: FieldTextAreaProps;
 };
 
 const CommonField: FC<Props> = ({ type, label, tagProps = {} }) => {

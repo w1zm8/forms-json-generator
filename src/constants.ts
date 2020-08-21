@@ -11,6 +11,6 @@ export const FIELD_INPUT_TYPES = [
   FIELD_TYPE_STRING,
   FIELD_TYPE_RADIO,
   FIELD_TYPE_DATE,
-];
+] as const;
 
 export const FIELD_TYPES = [...FIELD_INPUT_TYPES, FIELD_TYPE_TEXT] as const;

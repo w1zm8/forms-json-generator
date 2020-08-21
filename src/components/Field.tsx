@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, InputHTMLAttributes, FormEvent } from "react";
 import styled from "styled-components";
 import LabelWrapper from "./LabelWrapper";
 
@@ -8,14 +8,27 @@ const FieldBlock = styled.div`
   }
 `;
 
-type Props = React.InputHTMLAttributes<HTMLInputElement> & {
+type Props = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
+  onChange(e: FormEvent<HTMLInputElement>): void;
 };
 
-const Field: FC<Props> = ({ label, id, ...props }) => (
+/*
+actually we don't need that prop
+but if we don't put any handler for checkbox input
+we'll get warning: You provided a 'checked' prop to a form field w/o an `onChange` 
+*/
+const defaultOnChange = () => {};
+
+const Field: FC<Props> = ({
+  label,
+  id,
+  onChange = defaultOnChange,
+  ...props
+}) => (
   <FieldBlock>
     <LabelWrapper label={label} id={id}>
-      <input id={id} {...props} />
+      <input id={id} {...props} onChange={onChange} />
     </LabelWrapper>
   </FieldBlock>
 );

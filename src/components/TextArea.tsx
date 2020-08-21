@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, TextareaHTMLAttributes } from "react";
 import styled from "styled-components";
 import LabelWrapper from "./LabelWrapper";
 
@@ -8,7 +8,7 @@ const TextAreaBlock = styled.div`
   }
 `;
 
-type Props = React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+type Props = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   label?: string;
 };
 
