@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 
-function App() {
-  return <div>Forms JSON Generator</div>;
-}
+const App: FC<{}> = () => {
+  return <div></div>;
+};
 
 export default App;
