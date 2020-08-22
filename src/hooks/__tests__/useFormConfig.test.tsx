@@ -16,6 +16,7 @@ const Wrapper: FC<{
         items: [items[0]],
         controls: [controls[0]],
       },
+      error: null,
     }}
     reducer={formConfigReducer}
   >

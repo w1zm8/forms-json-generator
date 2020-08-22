@@ -6,9 +6,9 @@ import React, {
 } from "react";
 import {
   FormConfigReducer,
-  Action,
   FormConfigState,
 } from "../reducers/formConfigReducer";
+import { Action } from "../types";
 
 export interface ContextValue {
   state: ReducerState<FormConfigReducer>;
