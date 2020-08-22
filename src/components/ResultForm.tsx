@@ -1,14 +1,18 @@
 import React, { FC } from "react";
 import FormItemsViewer from "./FormItemsViewer";
 import FormControlsViewer from "./FormControlsViewer";
-import { useFormConfigData } from "../hooks/useFormConfig";
+import { useFormConfig } from "../hooks/useFormConfig";
 
 const ResultForm: FC<{}> = () => {
-  const { title, items, controls } = useFormConfigData();
+  const { state } = useFormConfig();
+
+  if (!state.config) return null;
+
+  const { title, items, controls } = state.config;
 
   return (
     <form>
-      {title && <h3>{title}</h3>}
+      {title && <h1>{title}</h1>}
       <FormItemsViewer items={items} />
       <FormControlsViewer controls={controls} />
     </form>

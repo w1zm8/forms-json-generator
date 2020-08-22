@@ -23,3 +23,8 @@ export const getInputType = (type: FieldType): string => {
       return "text";
   }
 };
+
+export const getRequiredFieldMsg = (key: string) =>
+  `Field '${key}' is required`;
+export const getFieldWrongTypeMsg = (key: string, type: string) =>
+  `Field '${key}' must be ${type}`;

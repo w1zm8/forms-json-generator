@@ -22,7 +22,7 @@ export const FormConfigContext = createContext<ContextValue | undefined>(
 interface Props {
   reducer: FormConfigReducer;
   initialState: FormConfigState;
-  children: React.ReactChildren;
+  children: React.ReactElement;
 }
 
 export const FormConfigProvider = ({

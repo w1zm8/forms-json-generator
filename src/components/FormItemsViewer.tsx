@@ -7,11 +7,14 @@ interface Props {
 }
 
 const FormItemsViewer: FC<Props> = ({ items }) => (
-  <div>
+  <>
     {items.map(({ props, ...item }, index) => (
-      <CommonField {...item} tagProps={props} key={index} />
+      <React.Fragment key={index}>
+        <CommonField {...item} tagProps={props} />
+        <br />
+      </React.Fragment>
     ))}
-  </div>
+  </>
 );
 
 export default FormItemsViewer;

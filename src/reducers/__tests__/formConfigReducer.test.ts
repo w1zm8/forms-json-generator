@@ -2,6 +2,7 @@ import formConfigReducer, { initialState } from "../formConfigReducer";
 import {
   updateFormConfig,
   validateFormConfig,
+  applyFormConfig,
 } from "../../actions/formConfigActions";
 import { FormsConfigData } from "../../types";
 import { items, controls } from "../../__mocks__/formResultData";
@@ -15,17 +16,32 @@ const newFormConfig: FormsConfigData = {
 const invalidJsonData = "{ smth, test }";
 
 describe("formConfigReducer", () => {
-  it("dispatch `UPDATE_FORM_CONFIG`", () => {
-    expect(
-      formConfigReducer(
-        initialState,
-        updateFormConfig(JSON.stringify(newFormConfig))
-      ).data
-    ).toEqual(newFormConfig);
+  describe("dispatch `UPDATE_FORM_CONFIG`", () => {
+    it("data was stored", () => {
+      expect(
+        formConfigReducer(
+          initialState,
+          updateFormConfig(JSON.stringify(newFormConfig))
+        ).data
+      ).toEqual(JSON.stringify(newFormConfig));
+    });
   });
-  it("dispatch `VALIDATE_FORM_CONFIG`", () => {
-    expect(
-      formConfigReducer(initialState, validateFormConfig(invalidJsonData)).error
-    ).not.toBeNull();
+  describe("dispatch `VALIDATE_FORM_CONFIG`", () => {
+    it("result of validation was stored", () => {
+      expect(
+        formConfigReducer(initialState, validateFormConfig(invalidJsonData))
+          .error
+      ).not.toBeNull();
+    });
+  });
+  describe("dispatch `APPLY_FORM_CONFIG`", () => {
+    it("configuration was stored", () => {
+      expect(
+        formConfigReducer(
+          initialState,
+          applyFormConfig(JSON.stringify(newFormConfig))
+        ).config
+      ).toEqual(newFormConfig);
+    });
   });
 });

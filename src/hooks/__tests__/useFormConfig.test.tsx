@@ -1,17 +1,20 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { renderHook } from "@testing-library/react-hooks";
 import { useFormConfig } from "../useFormConfig";
 import { FC } from "react";
 import { FormConfigProvider } from "../../contexts/FormConfigContext";
-import formConfigReducer from "../../reducers/formConfigReducer";
+import formConfigReducer, {
+  initialState,
+} from "../../reducers/formConfigReducer";
 import { items, controls } from "../../__mocks__/formResultData";
 
 const Wrapper: FC<{
-  children: React.ReactChildren;
+  children: ReactElement;
 }> = ({ children }) => (
   <FormConfigProvider
     initialState={{
-      data: {
+      ...initialState,
+      config: {
         title: "test",
         items: [items[0]],
         controls: [controls[0]],
@@ -30,8 +33,8 @@ describe("useFormConfig", () => {
       wrapper: Wrapper,
     });
 
-    expect(result.current.state.data.title).toBe("test");
-    expect(result.current.state.data.items[0]).toBe(items[0]);
-    expect(result.current.state.data.controls[0]).toBe(controls[0]);
+    expect(result.current.state.config!.title).toBe("test");
+    expect(result.current.state.config!.items[0]).toBe(items[0]);
+    expect(result.current.state.config!.controls[0]).toBe(controls[0]);
   });
 });

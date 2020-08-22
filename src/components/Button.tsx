@@ -30,6 +30,11 @@ const Button: FC<Props> = styled.button<Props>`
     background-color: #dadada;
   }
 
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+
   ${({ variant }) =>
     variant === "primary" &&
     `

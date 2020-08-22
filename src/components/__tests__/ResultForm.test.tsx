@@ -1,16 +1,19 @@
-import React, { FC, ComponentType } from "react";
+import React, { FC, ComponentType, ReactElement } from "react";
 import { render } from "@testing-library/react";
 import ResultForm from "../ResultForm";
 import { title, items, controls } from "../../__mocks__/formResultData";
 import { FormConfigProvider } from "../../contexts/FormConfigContext";
-import formConfigReducer from "../../reducers/formConfigReducer";
+import formConfigReducer, {
+  initialState,
+} from "../../reducers/formConfigReducer";
 
 const Wrapper: FC<{
-  children: React.ReactChildren;
+  children: ReactElement;
 }> = ({ children }) => (
   <FormConfigProvider
     initialState={{
-      data: {
+      ...initialState,
+      config: {
         title,
         items,
         controls,
