@@ -1,9 +1,6 @@
+import { InputHTMLAttributes, TextareaHTMLAttributes } from "react";
 import { FIELD_TYPES } from "./constants";
-import {
-  InputHTMLAttributes,
-  TextareaHTMLAttributes,
-  ButtonHTMLAttributes,
-} from "react";
+import { Props as ButtonProps } from "./components/Button";
 
 export type FieldType = typeof FIELD_TYPES[number];
 
@@ -21,7 +18,7 @@ export interface FormsConfigItem {
 
 export interface FormsConfigControl {
   label: string;
-  props: ButtonHTMLAttributes<HTMLButtonElement>;
+  props: ButtonProps;
 }
 
 export interface FormsConfigData {

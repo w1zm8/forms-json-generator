@@ -20,7 +20,7 @@ const controls: FormsConfigControl[] = [
     },
   },
   {
-    label: "Apply",
+    label: "Apply 2",
     props: {
       type: "submit",
     },
