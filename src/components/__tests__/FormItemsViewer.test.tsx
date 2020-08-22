@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import faker from "faker";
+import { build, fake } from "@jackfranklin/test-data-bot";
 import FormItemsViewer from "../FormItemsViewer";
 import { FormsConfigItem, InputProps, TextareaProps } from "../../types";
 
@@ -13,15 +13,30 @@ const MALE_INDEX = 4;
 const BIRTH_INDEX = 7;
 const AGREEMENT_INDEX = 8;
 
-const [birth] = faker.date.past(10).toISOString().split("T");
+interface FormValues {
+  birth: string | Date;
+  email: string;
+  username: string;
+  age: number;
+  about: string;
+}
 
-const formValues = {
-  birth,
-  email: faker.internet.email(),
-  username: faker.internet.userName(),
-  age: faker.random.number(80) + "",
-  about: faker.lorem.text(),
-};
+const formBuilder = build<FormValues>("Form", {
+  fields: {
+    birth: fake((f) => f.date.past(10)),
+    email: fake((f) => f.internet.email()),
+    username: fake((f) => f.internet.userName()),
+    age: fake((f) => f.random.number(80) + ""),
+    about: fake((f) => f.lorem.text()),
+  },
+  postBuild: (form) => {
+    const [birth] = (form.birth as Date).toISOString().split("T");
+    form.birth = birth;
+    return form;
+  },
+});
+
+const formValues: FormValues = formBuilder();
 
 const mockItems: FormsConfigItem[] = [
   {
@@ -202,7 +217,7 @@ describe("FormItemsViewer", () => {
     userEvent.type(aboutText, formValues.about);
     fireEvent.change(inputBirth, {
       target: {
-        value: birth,
+        value: formValues.birth,
       },
     });
     userEvent.click(maleRadioBtn);
