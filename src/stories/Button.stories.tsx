@@ -31,3 +31,10 @@ Light.args = {
   variant: "light",
   children: "Button",
 };
+
+export const Small = Template.bind({});
+Small.args = {
+  variant: "primary",
+  children: "Button",
+  size: "small",
+};

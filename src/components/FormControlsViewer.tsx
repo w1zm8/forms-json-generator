@@ -18,7 +18,7 @@ interface Props {
 
 const FormControlsViewer: FC<Props> = ({ controls }) => (
   <Row>
-    {controls.map(({ label, props }, index) => (
+    {controls.map(({ label, props = {} }, index) => (
       <React.Fragment key={index}>
         <Button {...props} key={index}>
           {label}

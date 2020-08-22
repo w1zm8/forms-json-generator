@@ -9,6 +9,7 @@ import {
   applyFormConfig,
 } from "../actions/formConfigActions";
 import Alert from "./Alert";
+import { initialData } from "../reducers/formConfigReducer";
 
 const ContentRight = styled.div`
   text-align: right;
@@ -30,6 +31,12 @@ const ConfigForm: FC<Props> = ({ onSubmit }) => {
     }
   };
 
+  const handleReset = () => {
+    const newData = JSON.stringify(initialData);
+    dispatch(validateFormConfig(newData));
+    dispatch(updateFormConfig(newData));
+  };
+
   const handleChange = ({ target }: React.ChangeEvent<HTMLTextAreaElement>) => {
     dispatch(validateFormConfig(target.value));
     dispatch(updateFormConfig(target.value));
@@ -46,12 +53,17 @@ const ConfigForm: FC<Props> = ({ onSubmit }) => {
           </ul>
         </Alert>
       )}
-      <form data-testid="form-config" onSubmit={handleSubmit}>
+      <form
+        data-testid="form-config"
+        onSubmit={handleSubmit}
+        onReset={handleReset}
+      >
         <TextArea
           name="data"
           data-testid="data"
           onChange={handleChange}
           onKeyDown={(e) => {
+            // just for disabling focus on next form element
             if (e.key === "Tab") {
               e.preventDefault();
             }
@@ -61,6 +73,9 @@ const ConfigForm: FC<Props> = ({ onSubmit }) => {
         />
         <br />
         <ContentRight>
+          <Button type="reset" disabled={!state.data.length} variant="light">
+            Clear
+          </Button>{" "}
           <Button
             type="submit"
             disabled={!!state.error || !state.data.length}

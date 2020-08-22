@@ -14,9 +14,14 @@ export interface FormConfigState {
 
 export type FormConfigReducer = Reducer<FormConfigState, Action>;
 
+export const initialData: FormsConfigData = {
+  items: [],
+  controls: [],
+};
+
 export const initialState: FormConfigState = {
-  config: null,
-  data: "",
+  config: initialData,
+  data: JSON.stringify(initialData),
   error: null,
 };
 

@@ -18,7 +18,7 @@ export interface FormsConfigItem {
 
 export interface FormsConfigControl {
   label: string;
-  props: ButtonProps;
+  props?: ButtonProps;
 }
 
 export interface FormsConfigData {

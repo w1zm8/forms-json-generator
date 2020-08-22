@@ -2,10 +2,14 @@ import { FC, ButtonHTMLAttributes } from "react";
 import styled from "styled-components";
 
 type Variant = "primary" | "success" | "light";
+type Size = "small" | "medium";
 
-export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+interface OwnProps {
   variant?: Variant;
-};
+  size?: Size;
+}
+
+export type Props = ButtonHTMLAttributes<HTMLButtonElement> & OwnProps;
 
 const Button: FC<Props> = styled.button<Props>`
   text-align: center;
@@ -60,10 +64,21 @@ const Button: FC<Props> = styled.button<Props>`
       background-color: #47a05c;
     }
   `}
+
+  ${({ size }) =>
+    size === "small" &&
+    `
+  padding: 0px 9px;
+    height: 29px;
+    font-size: 14px;
+    line-height: 29px;
+`}
+
 `;
 
 Button.defaultProps = {
   variant: "light",
+  size: "medium",
 };
 
 export default Button;
