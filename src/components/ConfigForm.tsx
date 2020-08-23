@@ -75,8 +75,8 @@ const ConfigForm: FC<Props> = ({ onSubmit }) => {
         />
         <br />
         <ContentRight>
-          <Button type="reset" disabled={!state.data.length} variant="light">
-            Clear
+          <Button type="reset" variant="light">
+            Reset
           </Button>{" "}
           <Button
             type="submit"
