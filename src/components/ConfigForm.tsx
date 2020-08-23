@@ -10,6 +10,7 @@ import {
 } from "../actions/formConfigActions";
 import Alert from "./Alert";
 import { initialData } from "../reducers/formConfigReducer";
+import FormTemplates from "./FormTemplates";
 
 const ContentRight = styled.div`
   text-align: right;
@@ -44,6 +45,7 @@ const ConfigForm: FC<Props> = ({ onSubmit }) => {
 
   return (
     <>
+      <FormTemplates />
       {state.error && (
         <Alert data-testid="error">
           <ul>

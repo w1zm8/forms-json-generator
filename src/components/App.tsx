@@ -4,7 +4,6 @@ import Tabs, { Tab, TabPane, TabList, TabContent } from "./Tabs";
 import Card from "./Card";
 import ConfigForm from "./ConfigForm";
 import ResultForm from "./ResultForm";
-import FormTemplates from "./FormTemplates";
 
 const Container = styled.div`
   max-width: 800px;
@@ -18,7 +17,6 @@ const App: FC<{}> = () => {
   return (
     <Container>
       <Card>
-        <FormTemplates />
         <Tabs
           activeIndex={activeTab}
           onSetActiveIndex={(index: number) => setActiveTab(index)}

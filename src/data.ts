@@ -42,7 +42,7 @@ export const signUpFormData = JSON.stringify({
       props: {
         id: "email",
         placeholder: "Enter email",
-        value: "somenewuser@gmail.com",
+        defaultValue: "somenewuser@gmail.com",
       },
     },
     {
@@ -51,7 +51,7 @@ export const signUpFormData = JSON.stringify({
       props: {
         id: "username",
         placeholder: "Enter username",
-        value: "somenewuser",
+        defaultValue: "somenewuser",
       },
     },
     {
@@ -122,7 +122,7 @@ export const createPostFormData = JSON.stringify({
       label: "Public",
       type: "radio",
       props: {
-        id: "access",
+        id: "radio1",
         name: "access",
         checked: true,
       },
@@ -131,7 +131,7 @@ export const createPostFormData = JSON.stringify({
       label: "Private",
       type: "radio",
       props: {
-        id: "access",
+        id: "radio2",
         name: "access",
       },
     },
